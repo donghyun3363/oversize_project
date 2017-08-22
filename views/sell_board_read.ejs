@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <title>OverSize</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/oversize.css">
+
+    <% include ./header.ejs/%>
+</head>
+<body style="padding-top: 50px;">
+<div id="wrapper">
+    <div id="contentliquid">
+        <div id="content">
+            <div class="mainlogo" style="display: table; margin-left: auto; margin-right: auto; padding-bottom: 30px; padding-top: 20px; border-bottom: 1px solid #bcbcbc;">
+                    <div class="item" align="center">
+                        <a href="/mainweb/main"><img src="/images/main_1.png" style="max-width: 70%; height: auto;"></img></a>
+                    </div>
+                </div>
+            <div class = "item">
+                <h1 style="text-align: center; margin-bottom: 40px;">상품 정보</h1>
+                <div class="table-responsive" style="margin-left: 20px;">
+                    <table class="table table-bordered" style="max-width : 800px;">
+                        <thead>
+                        <input type="hidden" name="item_seq" value="<%=row2.item_seq%>">
+                        <tr>
+                            <th style="width:100px">구분</th>
+                            <th>내용</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>판매자</td>
+                            <td><%=row2.seller_id%></td>
+                        </tr>
+                        <tr>
+                            <td>상품번호</td>
+                            <td><%=row2.item_seq%></td>
+                        </tr>
+                        <tr>
+                            <td>상품명</td>
+                            <td><%=row2.item_name%></td>
+                        </tr>
+                        <tr>
+                            <td>상품 이미지</td>
+                            <td><img src = "<%=row2.image%>" style="wide : 200px; height:200px"></td>
+                        </tr>
+                        <tr>
+                            <td>가격</td>
+                            <td><%=row2.price%></td>
+                        </tr>
+                        <tr>
+                            <td>재고</td>
+                            <td><%=row2.stock%></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row" style="max-width: 750px; margin-bottom: 30px;">
+                        <div class="col-md-2" style="margin:5px;">
+                            <form action="/mainweb/sell_board/sell_board_update" method="get">
+                                <input type="hidden" name="item_seq" value="<%=row2.item_seq%>"/>
+                                <button type="submit" class="btn btn-default">상품정보 수정</button>
+                            </form>
+                        </div>
+                        <div class="col-md-2" style="margin:5px;">
+                            <form action="/mainweb/sell_board/sell_board_delete" method="get">
+                                <input type="hidden" name="item_seq" value="<%=row2.item_seq%>"/>
+                                <button type="submit" class="btn btn-default">상품정보 삭제</button>
+                            </form>
+                        </div>
+                        <div class="col-md-2" style="margin:5px;">
+                            <a href="/mainweb/sell_board" role="button" class="btn btn-default">리스트로 돌아가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div id="footer">
+                <% include ./footer.ejs/%>
+            </div>
+        </div>
+        <div id="leftcolumn">
+            <% include ./left_menu.ejs/%>
+        </div>
+        <div id="rightcolumn" style="padding-top: 20px">
+            <% include ./right_menu.ejs/%>
+        </div>
+    </div>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

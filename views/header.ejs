@@ -1,0 +1,32 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/mainweb/main"><b>O v e r S i z e</b></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <% if(!isAuthenticated) {%>
+                <li><a href = "/mainweb/login"> 로그인 </a></li>
+                <li><a href="/mainweb/joinForm">회원가입</a></li>
+                <li><a href="/mainweb/login">장바구니</a></li>
+                <li><a href="/mainweb/login">주문내역</a></li>
+                <li><a href="/mainweb/login">마이페이지</a></li>
+                <%} else{%>
+                <li><a href="">안녕하세요 <%=user.name%>님!</a></li>
+                <li><a href = "/mainweb/logout">로그아웃</a></li>
+                <li><a href="/mainweb/editdata">정보수정</a></li>
+                <li><a href="/mainweb/cart">장바구니</a></li>
+                <li><a href="/mainweb/orderlist">주문내역</a></li>
+                <li><a href="/mainweb/mypage">마이페이지</a></li>
+                <%}%>
+                
+            </ul>
+        </div>
+    </div>
+</nav>

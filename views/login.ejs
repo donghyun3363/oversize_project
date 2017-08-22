@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <title>Bootstrap Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--PG크로스브라우징필수내용 시작-->
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/oversize.css">
+    <% include ./header.ejs/%>
+</head>
+<body>
+<body style="padding-top: 50px;">
+	<div id="wrapper">
+        <div id="contentliquid">
+        	<div id="content">
+        		<div class="mainlogo" style="display: table; margin-left: auto; margin-right: auto; padding-bottom: 50px; padding-top: 20px; border-bottom: 1px solid #bcbcbc;">
+        			<div class="item" align="center">
+        				<a href="/mainweb/main"><img src="/images/main_1.png" style="max-width: 70%; max-height: 70%;"></img></a>
+        			</div>
+        		</div>
+        		<div class="item">
+					<h2 style="text-align: center; margin-bottom: 20px;">Log In</h2>
+					<form class="form-horizontal" role="form" action = "/mainweb/login" method = "post" onsubmit="return onWriteSubmit()">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="username">ID:</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="username" id="username" placeholder="Enter id">
+								</div>
+						</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="password">Password:</label>
+							<div class="col-sm-6">
+								<input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+							</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="password">사용자구분:</label>
+							<div class = "col-sm-2">
+								<select name = "identity">
+									<option value="">선택</option>
+									<option value="관리자">관리자</option>
+									<option value="판매자">판매자</option>
+									<option value="구매자">구매자</option>
+								</select>
+							</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-10">
+							<button type="submit" class="btn btn-default">Login</button>
+							
+						</div>
+					</div>
+    				</form>
+
+				</div>
+           	</div>
+           	<div id="footer">
+            	<% include ./footer.ejs /%>
+        	</div>
+        </div>
+        <div id="leftcolumn">
+        	<% include ./left_menu.ejs /%>
+        </div>
+        <div id="rightcolumn" style="padding-top: 20px">
+			<% include ./right_menu.ejs /%>
+        </div>
+    </div>
+
+   	<script>
+    function onWriteSubmit(){
+        if($("#username").val().trim() == ""){
+            var message = "아이디를 입력해 주세요";
+            $("#username").val("");
+            $("#username").focus();
+            alert(message);
+            return false;
+        }
+
+        if($("#password").val().trim() == ""){
+            var message = "패스워드를 입력해 주세요";
+            $("#password").val("");
+            $("#password").focus();
+            alert(message);
+            return false;
+        }
+
+        if($("#identity").val().trim() == "선택"){
+            var message = "본문 내용을 입력해 주세요";
+            $("#identity").val("");
+            $("#identity").focus();
+            alert(message);
+            return false;
+        }
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
